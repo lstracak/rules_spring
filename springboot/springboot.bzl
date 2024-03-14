@@ -374,6 +374,7 @@ def springboot(
         deps_use_starlark_order = None,
         dupeclassescheck_enable = None,
         dupeclassescheck_ignorelist = None,
+        exec_compatible_with = [],
         javaxdetect_enable = None,
         javaxdetect_ignorelist = None,
         include_git_properties_file=True,
@@ -444,6 +445,7 @@ def springboot(
       tags: Optional. Bazel standard attribute.
       testonly: Optional. Bazel standard attribute. Defaults to False.
       visibility: Optional. Bazel standard attribute.
+      exec_compatible_with: Optional. Sets exec_compatible_with property in java_binary rule.
       exclude: Deprecated synonym of *deps_exclude*
       classpath_index: Deprecated synonym of *deps_index_file*
       use_build_dependency_order: Deprecated synonym of *deps_use_starlark_order*
@@ -657,6 +659,7 @@ def springboot(
         name = apprun_rule,
         main_class = boot_app_class,
         runtime_deps = java_deps,
+        exec_compatible_with = exec_compatible_with,
         tags = tags,
         testonly = testonly,
     )
